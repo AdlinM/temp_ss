@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'ShangriLa',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        ShangriLa\Providers\AppServiceProvider::class,
+        ShangriLa\Providers\AuthServiceProvider::class,
+        // ShangriLa\Providers\BroadcastServiceProvider::class,
+        ShangriLa\Providers\EventServiceProvider::class,
+        ShangriLa\Providers\RouteServiceProvider::class,
 
     ],
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ShangriLa\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

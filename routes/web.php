@@ -19,6 +19,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/sederhana', 'sederhanaController@index');
-
 Route::get('/home', 'HomeController@index');
