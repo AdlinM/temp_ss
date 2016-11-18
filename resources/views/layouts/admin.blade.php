@@ -34,9 +34,9 @@
 
         <!-- Styles -->
         <link type="text/css" rel="stylesheet" href="/assets/plugins/materialize/css/materialize.min.css"/>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
         <link href="/assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
-
+        @yield('styles')
 
         <!-- Theme Styles -->
         <link href="/assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
@@ -103,21 +103,15 @@
                             </a>
                         </section>
                         <div class="header-title col s3">
-                            <span class="chapter-title">{{ config('app.name','ShangriLa') }}</span>
+                            <span class="chapter-title">{{ config('app.name','Shangri La') }}</span>
                         </div>
-                        <form class="left search col s6 hide-on-small-and-down">
-                            <div class="input-field">
-                                <input id="search" type="search" placeholder="Search" autocomplete="off">
-                                <label for="search"><i class="material-icons search-icon">search</i></label>
-                            </div>
-                            <a href="javascript: void(0)" class="close-search"><i class="material-icons">close</i></a>
-                        </form>
                         <ul class="right col s9 m3 nav-right-menu">
-                            <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i><span class="badge">4</span></a></li>
+                            <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">more_vert</i></a></li>
+                            <!--<li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i><span class="badge">4</span></a></li>-->
                             <li class="hide-on-med-and-up"><a href="javascript:void(0)" class="search-toggle"><i class="material-icons">search</i></a></li>
                         </ul>
 
-                        <ul id="dropdown1" class="dropdown-content notifications-dropdown">
+                        <!--<ul id="dropdown1" class="dropdown-content notifications-dropdown">
                             <li class="notificatoins-dropdown-container">
                                 <ul>
                                     <li class="notification-drop-title">Today</li>
@@ -185,6 +179,27 @@
                                             <div class="notification-text"><p>Code changes were saved</p><span>1 day ago</span></div>
                                         </div>
                                         </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>-->
+                        <ul id="dropdown1" class="dropdown-content notifications-dropdown">
+                            <li class="notificatoins-dropdown-container">
+                                <ul>
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                                           class="waves-effect waves-grey">
+                                             <div class="notification">
+                                                   <div class="notification-icon circle cyan"><i class="material-icons">exit_to_app</i></div>
+                                                 <div class="notification-text"><p>Sign Out</p></div>
+                                             </div>
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </li>
                                 </ul>
                             </li>
@@ -313,165 +328,38 @@
                             <img src="assets/images/profile-image.png" class="circle" alt="">
                         </div>
                         <div class="sidebar-profile-info">
-                            <a href="javascript:void(0);" class="account-settings-link">
-                                <p>David Doe</p>
-                                <span>david@gmail.com<i class="material-icons right">arrow_drop_down</i></span>
-                            </a>
+                                <p>{{ Auth::user()->name }}</p>
+                                <span>{{ Auth::user()->email }}</span>
                         </div>
-                    </div>
-                    <div class="sidebar-account-settings">
-                        <ul>
-                            <li class="no-padding">
-                                <a class="waves-effect waves-grey"><i class="material-icons">mail_outline</i>Inbox</a>
-                            </li>
-                            <li class="no-padding">
-                                <a class="waves-effect waves-grey"><i class="material-icons">star_border</i>Starred<span class="new badge">18</span></a>
-                            </li>
-                            <li class="no-padding">
-                                <a class="waves-effect waves-grey"><i class="material-icons">done</i>Sent Mail</a>
-                            </li>
-                            <li class="no-padding">
-                                <a class="waves-effect waves-grey"><i class="material-icons">history</i>History<span class="new grey lighten-1 badge">3 new</span></a>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="no-padding">
-                                <a class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Sign Out</a>
-                            </li>
-                        </ul>
                     </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="index-2.html"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
-                    <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">apps</i>Apps<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="mailbox.html">Mailbox</a></li>
-                                <li><a href="search.html">Search</a></li>
-                                <li><a href="todo.html">Todo</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">code</i>Components<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="ui-accordions.html">Accordion</a></li>
-                                <li><a href="ui-badges.html">Badges</a></li>
-                                <li><a href="ui-buttons.html">Buttons</a></li>
-                                <li><a href="ui-typography.html">Typography</a></li>
-                                <li><a href="ui-cards.html">Cards</a></li>
-                                <li><a href="ui-carousel.html">Carousel</a></li>
-                                <li><a href="ui-chips.html">Chips</a></li>
-                                <li><a href="ui-color.html">Color</a></li>
-                                <li><a href="ui-collections.html">Collections</a></li>
-                                <li><a href="ui-dropdown.html">Dropdown</a></li>
-                                <li><a href="ui-dialogs.html">Dialogs</a></li>
-                                <li><a href="ui-grid.html">Grid</a></li>
-                                <li><a href="ui-helpers.html">Helpers</a></li>
-                                <li><a href="ui-modals.html">Modals</a></li>
-                                <li><a href="ui-media.html">Media</a></li>
-                                <li><a href="ui-icons.html">Icons</a></li>
-                                <li><a href="ui-parallax.html">Parallax</a></li>
-                                <li><a href="ui-preloader.html">Preloader</a></li>
-                                <li><a href="ui-shadow.html">Shadow</a></li>
-                                <li><a href="ui-tabs.html">Tabs</a></li>
-                                <li><a href="ui-waves.html">Waves</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">star_border</i>Plugins<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="miscellaneous-sweetalert.html">Sweet Alert</a>
-                                <li><a href="miscellaneous-code-editor.html">Code Editor</a>
-                                <li><a href="miscellaneous-nestable.html">Nestable List</a>
-                                <li><a href="miscellaneous-masonry.html">Masonry</a>
-                                <li><a href="miscellaneous-idle-timer.html">Idle Timer</a>
-                            </ul>
-                        </div>
-                    </li>
                     <li class="no-padding active">
-                        <a class="collapsible-header waves-effect waves-grey active"><i class="material-icons">desktop_windows</i>Layouts<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="layout-blank.html" class="active-page">Blank Page</a></li>
-                                <li><a href="layout-boxed.html">Boxed Layout</a></li>
-                                <li><a href="layout-hidden-sidebar.html">Hidden Sidebar</a></li>
-                                <li><a href="layout-right-sidebar.html">Right Sidebar</a></li>
-                            </ul>
-                        </div>
+                      <a class="waves-effect waves-grey active" href="{{ url('/home') }}"><i class="material-icons">settings_input_svideo</i>Dashboard</a>
                     </li>
                     <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">mode_edit</i>Forms<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="form-elements.html">Form Elements</a></li>
-                                <li><a href="form-wizard.html">Form Wizard</a></li>
-                                <li><a href="form-upload.html">File Upload</a></li>
-                                <li><a href="form-image-crop.html">Image Crop</a></li>
-                                <li><a href="form-image-zoom.html">Image Zoom</a></li>
-                                <li><a href="form-input-mask.html">Input Mask</a></li>
-                                <li><a href="form-select2.html">Select2</a></li>
-                            </ul>
-                        </div>
+                      <a class="waves-effect waves-grey" href="{{ url('/member/index') }}"><i class="material-icons">contacts</i>Data Anggota</a>
                     </li>
                     <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">grid_on</i>Tables<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="table-static.html">Static Tables</a></li>
-                                <li><a href="table-responsive.html">Responsive Tables</a></li>
-                                <li><a href="table-comparison.html">Comparison Table</a></li>
-                                <li><a href="table-data.html">Data Tables</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="charts.html"><i class="material-icons">trending_up</i>Charts</a></li>
-                    <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">my_location</i>Maps<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="maps-google.html">Google Maps</a></li>
-                                <li><a href="maps-vector.html">Vector Maps</a></li>
-                            </ul>
-                        </div>
+                      <a class="waves-effect waves-grey"><i class="material-icons">grade</i>Acara Seminar</a>
                     </li>
                     <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">tag_faces</i>Extra Pages<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="404.html">404 Page</a></li>
-                                <li><a href="500.html">500 Page</a></li>
-                                <li><a href="invoice.html">Invoice</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="sign-in.html">Sign In</a></li>
-                                <li><a href="sign-up.html">Sign Up</a></li>
-                                <li><a href="lock-screen.html">Lock Screen</a></li>
-                                <li><a href="pattern-lock-screen.html">Pattern Lock Screen</a></li>
-                                <li><a href="forgot.html">Forgot Password</a></li>
-                                <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="timeline.html">Timeline</a></li>
-                                <li><a href="calendar.html">Calendar</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                            </ul>
-                        </div>
+                      <a class="waves-effect waves-grey"><i class="material-icons">question_answer</i>Message Broadcast</a>
+                    </li>
+                    <li class="no-padding">
+                      <a class="waves-effect waves-grey"><i class="material-icons">library_books</i>Artikel dan Kegiatan</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="no-padding">
+                      <a class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Keluar</a>
                     </li>
                 </ul>
                 <div class="footer">
-                    <p class="copyright">Steelcoders ©</p>
-                    <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
+                    <p class="copyright">Copyrights <!--Steelcoders--> © 2016</p>
                 </div>
                 </div>
             </aside>
-            <main class="mn-inner">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="page-title">@yield('content')</div>
-                    </div>
-                </div>
+            <main class="mn-inner inner-active-sidebar">
+              @yield('content')
             </main>
         </div>
         <div class="left-sidebar-hover"></div>
@@ -481,6 +369,7 @@
         <script src="/assets/plugins/materialize/js/materialize.min.js"></script>
         <script src="/assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
         <script src="/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        @yield('scripts')
         <script src="/assets/js/alpha.min.js"></script>
 
     </body>
