@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/member', 'MemberController@index');
+Route::get('/member/form', 'MemberController@memberForm');
+
 Route::get('/home', 'HomeController@index');
