@@ -58,16 +58,16 @@
               <div class="card-options">
                   <input type="text" class="expand-search" placeholder="Search" autocomplete="off">
               </div>
-              <span class="card-title">Invoices</span>
+              <span class="card-title">Article Overview</span>
           <table class="responsive-table bordered">
               <thead>
                   <tr>
                       <th data-field="id">ID</th>
-                      <th data-field="number">Payment Type</th>
-                      <th data-field="company">Company</th>
+                      <th data-field="number">Penulis</th>
+                      <th data-field="company">Judul Artikel</th>
                       <th data-field="date">Date</th>
-                      <th data-field="progress">Progress</th>
-                      <th data-field="total">Total</th>
+                      <th data-field="progress"></th>
+                      <th data-field="total">Total Viewer</th>
                   </tr>
               </thead>
               <tbody>
@@ -77,7 +77,7 @@
                       <td>Curabitur Libero Corp</td>
                       <td>Dec 16, 18:12</td>
                       <td><span class="pie">3/8</span></td>
-                      <td>$5430</td>
+                      <td>5430</td>
                   </tr>
                   <tr>
                       <td>#202</td>
@@ -85,7 +85,7 @@
                       <td>Integer Mattis Ltd</td>
                       <td>Nov 29, 13:56</td>
                       <td><span class="pie">5/8</span></td>
-                      <td>$1400</td>
+                      <td>1400</td>
                   </tr>
                   <tr>
                       <td>#200</td>
@@ -93,7 +93,7 @@
                       <td>Pellentesque Inc</td>
                       <td>Nov 17, 19:14</td>
                       <td><span class="pie">3/8</span></td>
-                      <td>$1250</td>
+                      <td>1250</td>
                   </tr>
                   <tr>
                       <td>#199</td>
@@ -101,7 +101,7 @@
                       <td>Curabitur Libero Corp</td>
                       <td>Oct 21, 12:16</td>
                       <td><span class="pie">5/8</span></td>
-                      <td>$1349</td>
+                      <td>1349</td>
                   </tr>
                   <tr>
                       <td>#198</td>
@@ -109,7 +109,7 @@
                       <td>Integer Mattis Ltd</td>
                       <td>Oct 14, 22:43</td>
                       <td><span class="pie">3/8</span></td>
-                      <td>$980</td>
+                      <td>980</td>
                   </tr>
                   <tr>
                       <td>#197</td>
@@ -117,7 +117,7 @@
                       <td>Pellentesque Inc</td>
                       <td>Sept 29, 10:33</td>
                       <td><span class="pie">5/8</span></td>
-                      <td>$679</td>
+                      <td>679</td>
                   </tr>
               </tbody>
           </table>
