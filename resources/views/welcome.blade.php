@@ -42,6 +42,17 @@
         <link href="/assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
         <link href="/assets/css/custom.css" rel="stylesheet" type="text/css"/>
 
+        <!-- Custom Styles -->
+        <style type="text/css">
+          body {
+            background-color: white !important;
+          }
+
+          .text-white {
+            color:white !important;
+          }
+        </style>
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
@@ -93,36 +104,42 @@
                 </div>
             </div>
         </div>
+        <header class="mn-header navbar-fixed" style="position:absolute; width:100%">
+            <nav class="" style="position:absolute !important;background:transparent; box-shadow:none;">
+                <div class="nav-wrapper row">
+                    <!--<div class="header-title col s3">
+                        <h4 class="chapter-title">{{ config('app.name', 'ShangriLa') }}</h4>
+                    </div>-->
+                    <div class="header-title right">
+                      <a href="{{ url('/login') }}" class="waves-effect waves-grey"> Sign In </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <div class="mn-content">
-                <div class="row">
-                  <div class="parallax-container">
-                      <div class="parallax"><img src="assets/images/mountains3.png"></div>
+                <div class="row"style="height: 100%;">
+                  <div class="parallax-container" style="height: 100%;">
+                    <div class="row" >
+                      <div class="col s12"></div>
+                      <div class="col m6 offset-m3" style="margin-top: 12%;">
+                        <div class="center"><image src="/assets/images/logo-big.png" alt="{{ config('app.name', 'Shangri-a') }}" style="width: 100%;" /></div>
+                      </div>
+                    </div>
+                    <div class="parallax"><img src="/assets/images/mountains1.png"></div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="">
                     <div class="col s12">
                         <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Parallax HTML Structure</span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Initialization</span>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">Parallax Customization</span>
-                                <p>The parallax container height is what defines how much of the image can be seen. This is set to a default of 500px. You can add your own style to override this.</p><br>
-
+                            <div class="card-content cyan darken-1" style="padding: 70px 100px;">
+                                <h5><p align="justify" class="text-white">Forum Indonesia Muda (FIM), di sini kita bisa temukan semangat, semangat berbagi, berinovasi dan berkolaborasi bersama dengan pemuda indonesia, untuk negeri kita. Ya negeri yang kita cintai dan yakini akan harum semerbak dengan prestasi, budaya dan aksi nyata dari kita. Kita pemuda Indonesia yang akan selalu berusaha mengharumkan indonesia. dan selalu bangga menjadi bangsa Indonesia yang menjadi bagian dari sebuah kebaikan.</p></h5><br>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                   <div class="parallax-container">
-                      <div class="parallax"><img src="assets/images/mountains1.png"></div>
+                      <div class="parallax"><img src="assets/images/mountains3.png"></div>
                   </div>
                 </div>
         </div>

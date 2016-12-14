@@ -15,7 +15,7 @@
       <div class="col s12 m12 l12">
           <div class="card">
               <div class="card-content">
-                  <form id="example-form" action="#">
+                  <form id="example-form" action="/member" method="post">
                       <div>
                           <h4>Personal Info</h4>
                           <section>
@@ -36,15 +36,15 @@
                                                   <input id="email" name="email" type="email" class="required validate">
                                               </div>
                                               <div class="input-field col s12">
-                                                  <label for="confirm">Bio</label>
-                                                  <textarea id="textarea1" class="materialize-textarea" length="190"></textarea>
+                                                  <label for="bio">Bio</label>
+                                                  <textarea id="bio" class="materialize-textarea" length="190"></textarea>
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col m6">
                                           <div class="row">
                                               <div class="input-field col m6 s12">
-                                                <select id="countrySelect">
+                                                <select id="jurusan">
                                                     <option value="">Jurusan...</option>
                                                     <option value="AF">Teknik Informatika</option>
                                                     <option value="AF">Sistem Informasi</option>
@@ -56,12 +56,12 @@
                                                   <input id="address" name="address" type="text">
                                               </div>
                                               <div class="input-field col m6 s12">
-                                                  <label for="birthdate">Tanggal Lahir</label>
-                                                  <input id="birthdate" name="birthdate" type="date" class="datepicker required">
+                                                  <label for="DOB">Tanggal Lahir</label>
+                                                  <input id="DOB" name="birthdate" type="date" class="datepicker required">
                                               </div>
                                               <div class="input-field col m6 s12">
-                                                  <label for="city">Kota Asal</label>
-                                                  <input id="city" name="city" type="text">
+                                                  <label for="POB">Kota Asal</label>
+                                                  <input id="POB" name="city" type="text">
                                               </div>
                                               <div class="input-field col s12">
                                                   <label for="phone">Nomor Telepon</label>
@@ -82,7 +82,8 @@
                                         <br />
                                         <div class="right">
                                           <a class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
-                                          <a class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</a>
+                                          {{ csrf_field() }}
+                                          <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>
                                         </div>
                                       </div>
                                     </div>
