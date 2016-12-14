@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ShangriLa') }}</title>
-
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <!-- Title -->
+    <title>{{ config('app.name','ShangriLa') }}</title>
 
     <!-- Scripts -->
     <script>
@@ -19,69 +20,83 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="/assets/plugins/materialize/css/materialize.min.css"/>
+    <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link href="/assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+    @yield('styles')
+
+    <!-- Theme Styles -->
+    <link href="/assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
+<body class="signin-page">
+    <div class="loader-bg"></div>
+    <div class="loader">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                <div class="circle"></div>
                 </div>
             </div>
-        </nav>
-
-        @yield('content')
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mn-content valign-wrapper">
+        <main class="mn-inner container">
+            @yield('content')
+        </main>
     </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <!-- Javascripts -->
+    <script src="/assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="/assets/plugins/materialize/js/materialize.min.js"></script>
+    <script src="/assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="/assets/js/alpha.min.js"></script>
+    @yield('scripts')
+
 </body>
+
+<!-- Mirrored from steelcoders.com/alpha/v1.2/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 24 Oct 2016 05:06:37 GMT -->
 </html>
