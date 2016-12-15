@@ -8,11 +8,11 @@
               <div class="card-content ">
                    <span class="card-title">Sign In</span>
                    <div class="row">
-                       <form class="col s12" role="form" method="POST" action="{{ url('/login') }}">
+                       <form class="col s12" role="form" method="POST" action="{{ url('/login') }}" autocomplete="off">
                            {{ csrf_field() }}
 
                            <div class="input-field col s12">
-                               <input id="email" type="email" class="validate" name="email" value="{{ old('email') }}" required autofocus>
+                               <input id="email" type="email" class="validate" name="email" value="{{ old('email') }}" required>
                                <label for="email">Email</label>
 
                                @if ($errors->has('email'))
@@ -23,7 +23,7 @@
                            </div>
 
                            <div class="input-field col s12">
-                               <input id="password" type="password" class="form-control" name="password" required  autofocus>
+                               <input id="password" type="password" class="form-control" name="password" required>
                                <label for="password">Password</label>
 
                                @if ($errors->has('password'))
@@ -40,7 +40,7 @@
                            &nbsp;
 
                            <div class="col s12 right-align m-t-sm">
-                               <a class="center waves-effect waves-light btn grey" href="#">
+                               <a class="center waves-effect waves-light btn grey" href="{{ url('/register') }}">
                                  Sign Up
                                </a>
                                <button type="submit" class="waves-effect waves-grey btn teal">
