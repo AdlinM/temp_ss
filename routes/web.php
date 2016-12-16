@@ -23,7 +23,8 @@ Auth::routes();
 //Route::get('/member/form', 'MemberController@memberForm');
 Route::resource('member', 'MemberController');
 
-Route::get('/event/calendar', 'EventController@eventCalendar');
+//Route::get('/event/calendar', 'EventController@eventCalendar');
+Route::resource('event', 'EventController');
 
 Route::get('/article', 'ArticleController@index');
 

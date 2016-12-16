@@ -5,7 +5,6 @@
 @endsection
 
 @section('scripts')
-  <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
   <script src="assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
   <script src="assets/js/pages/table-data.js"></script>
 @endsection
@@ -20,13 +19,28 @@
                         <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Kota Lahir</th>
-                                <th>Usia</th>
+                                <th>Jurusan</th>
+                                <th>Semester</th>
                                 <th>Tanggal Bergabung</th>
                                 <th>No Telp</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                          @foreach($data as $m)
+                          <tr>
+                            <td>{{ $m->firstName }} {{ $m->lastName }}</td>
+                            <td>{{ $m->jurusan }}</td>
+                            <td>V</td>
+                            <td>{{ $m->created_at }}</td>
+                            <td>{{ $m->phone}}</td>
+                            <td>
+                                <a href="{{ route('member.show', $m->id) }}" class="btn btn-small teal"><i class="material-icons dp48">library_books</i></a>
+                                <a href="{{ route('member.edit', $m->id) }}" class="btn btn-small blue"><i class="material-icons">mode_edit</i></a>
+                                <a href="{{ route('member.destroy', $m->id) }}" class="btn btn-small red"><i class="material-icons">delete</i></a>
+                            </td>
+                          </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

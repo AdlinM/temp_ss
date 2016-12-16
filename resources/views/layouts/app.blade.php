@@ -14,6 +14,8 @@
     <!-- Title -->
     <title>{{ config('app.name','ShangriLa') }}</title>
 
+    <link rel="icon" type="image/png" href="\assets\images\logo-ico.png">
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([

@@ -4,6 +4,7 @@ namespace ShangriLa\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ShangriLa\Member;
+use ShangriLa\smsgateway;
 
 class MemberController extends Controller
 {
@@ -11,6 +12,7 @@ class MemberController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +20,16 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
-        return view('/member/index');
+        $data = Member::all();
+
+        return view('member.index', compact('data'));
+
+
+        /*$smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
+        $page = 1;
+        $result = $smsGateway->getContacts($page);*/
+        //return $result;
+        //return view('/member/index');
     }
 
     /**
@@ -43,10 +53,33 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        $input = new Member;
+      $this->validate($request, [
+          'firstName' => 'required',
+          'email' => 'required',
+          'jurusan' => 'required',
+          'phone' => 'required'
+      ]);
+
+        $input = $request->all();
+
+        Member::create($input);
+
+        return redirect()->back();
+
+        Session::flash('flash_message', 'Member successfully added!');
+
+
+        /*$input = new Member;
         $input->firstName = $request->firstName;
-        $input->save();
-        return $request->firstName;
+        $input->lastName = $request->lastName;
+        $input->email = $request->email;
+        $input->bio = $request->bio;
+        $input->jurusan = $request->jurusan;
+        $input->address = $request->address;
+        $input->DOB = $request->DOB;
+        $input->POB = $request->POB;
+        $input->phone = $request->phone;
+        $input->save();*/
     }
 
     /**
@@ -57,8 +90,8 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-
-
+        $data =  Member::findOrFail($id);
+        return view('member.show', compact('data'));
     }
 
     /**
@@ -69,8 +102,10 @@ class MemberController extends Controller
      */
     public function edit($id)
     {
-        $data = Member::select('select * from member where id = :id', ['id' => $id]);
-        return view('/member/edit', ['data' => $data]);
+        $data = Member::findOrFail($id);
+
+        //$data = Member::select('select * from member where id = :id', ['id' => $id]);
+        return view('member.memberForm', compact('data'));
     }
 
     /**

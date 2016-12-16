@@ -13,6 +13,8 @@
 
     <!-- Title -->
     <title>{{ config('app.name','ShangriLa') }}</title>
+    
+    <link rel="icon" type="image/png" href="\assets\images\logo-ico.png">
 
     <!-- Scripts -->
     <script>
@@ -148,7 +150,7 @@
                       <a class="waves-effect waves-grey" href="{{ url('/member') }}"><i class="material-icons">contacts</i>Manajemen Data Anggota</a>
                     </li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey">
+                      <a class="waves-effect waves-grey" href="{{ url('/event') }}">
                         <i class="material-icons">grade</i>
                         <span style="display: block;margin-left: 40px;">Manajemen Event/Acara/Seminar</span>
                       </a>

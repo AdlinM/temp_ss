@@ -20,9 +20,9 @@ class CreateMembersTable extends Migration
           $table->string('email', 100)->unique();
           $table->string('bio')->nullable();
           $table->string('jurusan', 255);
-          $table->text('address');
-          $table->date('DOB');
-          $table->string('POB');
+          $table->text('address')->nullable();
+          $table->date('DOB')->nullable();
+          $table->string('POB')->nullable();
           $table->string('phone');
           $table->timestamps();
       });
