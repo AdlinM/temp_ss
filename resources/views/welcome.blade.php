@@ -130,14 +130,36 @@
                 <div class="col s12">
                     <div class="card">
                         <div class="card-content cyan darken-1" style="padding: 70px 100px;">
-                            <h5><p align="justify" class="text-white">Forum Indonesia Muda (FIM), di sini kita bisa temukan semangat, semangat berbagi, berinovasi dan berkolaborasi bersama dengan pemuda indonesia, untuk negeri kita. Ya negeri yang kita cintai dan yakini akan harum semerbak dengan prestasi, budaya dan aksi nyata dari kita. Kita pemuda Indonesia yang akan selalu berusaha mengharumkan indonesia. dan selalu bangga menjadi bangsa Indonesia yang menjadi bagian dari sebuah kebaikan.</p></h5><br>
+                            <h5><p align="justify" class="text-white">Shangri-La (Sharing and Caring Latest Activity with SMS Gateway) berbasis web dengan SMS Gateway fungsi Shangri-La adalah untuk memudahkan menghubungkan setiap anggota organisasi</p></h5><br>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <div class=" " style="padding: 70px 100px;">
+                        <div>
+                            <h5><p align="justify">Kenapa memakai Shangri-La?</p></h5>
+                            <p>Sebuah pelatihan yang bertujuan untuk memperluas wawasan, meningkatkan kompetensi, dan menanamkan pilar-pilar karakter dan kepemimpinan sekaligus memperluas jaringan dari pesertanya. Pelatihan ini dikemas dalam bentuk diskusi, simulasi, workshop, games, outbond, serta unjuk ekspresi. Hingga saat ini, FIM memiliki alumni pemuda dan mahasiswa dengan jumlah lebih dari 2000 orang yang tersebar di seluruh Indonesia dengan latar belakang minat dan aktivitas seperti pendidikan, kerelawanan, pemberdayaan masyarakat, lingkungan, sosial politik ekonomi, seni dan budaya. dalam kegiatan online maupun offline.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col s6">
+                    <div class=" ">
+                        <div class="center">
+                            <img src="\assets\images\organisasi.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
             <div class="row">
               <div class="parallax-container">
                   <div class="parallax"><img src="assets/images/mountains3.png"></div>
+                  
               </div>
             </div>
     </div>
