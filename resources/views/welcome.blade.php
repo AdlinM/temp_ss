@@ -109,7 +109,9 @@
                     <h4 class="chapter-title">{{ config('app.name', 'ShangriLa') }}</h4>
                 </div>-->
                 <div class="header-title right">
-                  <a href="{{ url('/login') }}" class="waves-effect waves-grey"> Sign In </a>
+                  <a href="{{ url('/login') }}" class="waves-effect waves-grey btn-flat text-white"> Sign In </a>
+                  &nbsp;
+                  <a href="{{ url('/register') }}" class="waves-effect waves-grey btn-flat text-white"> Register </a>
                 </div>
             </div>
         </nav>
