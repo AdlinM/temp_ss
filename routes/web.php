@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 
-
 Auth::routes();
+
 
 //Route::get('/member', 'MemberController@index');
 //Route::get('/member/form', 'MemberController@memberForm');
@@ -26,6 +26,9 @@ Route::resource('member', 'MemberController');
 //Route::get('/event/calendar', 'EventController@eventCalendar');
 Route::resource('event', 'EventController');
 
-Route::get('/article', 'ArticleController@index');
+//Route::get('/article', 'ArticleController@index');
+Route::resource('article', 'ArticleController');
+
+Route::resource('message','MessageController');
 
 Route::get('/home', 'HomeController@index');

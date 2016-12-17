@@ -40,12 +40,13 @@
                            &nbsp;
 
                            <div class="col s12 right-align m-t-sm">
+                                <button type="submit" class="waves-effect waves-grey btn teal">
+                                   Sign In
+                               </button>
                                <a class="center waves-effect waves-light btn grey" href="{{ url('/register') }}">
                                  Sign Up
                                </a>
-                               <button type="submit" class="waves-effect waves-grey btn teal">
-                                   Sign In
-                               </button>
+                              
                                <hr />
                                <a class="center col s12 waves-effect waves-light btn-flat" href="{{ url('/password/reset') }}">
                                  <small>Forgot Your Password?</small>

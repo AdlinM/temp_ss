@@ -40,7 +40,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('/member/memberForm');
+        return view('/member/create');
     }
 
     /**
@@ -57,6 +57,7 @@ class MemberController extends Controller
           'jurusan' => 'required',
           'phone' => 'required',
           'nim' => 'required|min:9|max:9|unique:members',
+          'bio' => 'max:190'
       ]);
 
         $input = $request->all();
@@ -122,7 +123,8 @@ class MemberController extends Controller
           'email' => 'required',
           'jurusan' => 'required',
           'nim' => 'required|min:9|max:9',
-          'phone' => 'required'
+          'phone' => 'required',
+          'bio' => 'max:190'
       ]);
 
       $input = $request->all();
@@ -131,8 +133,9 @@ class MemberController extends Controller
 
       Session::flash('flash_message', 'Member successfully Update!');
 
-      $data = Member::all();
-      return view('member.index', compact('data'));
+      //$data = Member::all();
+      //return view('member.index', compact('data'));
+      return redirect()->back();
     }
 
     /**

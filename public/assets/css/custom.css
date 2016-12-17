@@ -32,3 +32,15 @@
 .btn-small i {
     font-size: 1rem;
 }
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-grey {
+  color:#ccc;
+}

@@ -117,7 +117,7 @@
                                        class="waves-effect waves-grey">
                                          <div class="notification">
                                                <div class="notification-icon circle cyan"><i class="material-icons">exit_to_app</i></div>
-                                             <div class="notification-text"><p>Sign Out</p></div>
+                                             <div class="notification-text"><p>Keluar</p></div>
                                          </div>
                                     </a>
 
@@ -147,26 +147,29 @@
                       <a class="waves-effect waves-grey" href="{{ url('/home') }}"><i class="material-icons">settings_input_svideo</i>Dashboard / Statistik</a>
                     </li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey" href="{{ url('/member') }}"><i class="material-icons">contacts</i>Manajemen Data Anggota</a>
+                      <a class="waves-effect waves-grey" href="{{ url('/member') }}"><i class="material-icons">contacts</i>Anggota</a>
                     </li>
                     <li class="no-padding">
                       <a class="waves-effect waves-grey" href="{{ url('/event') }}">
                         <i class="material-icons">grade</i>
-                        <span style="display: block;margin-left: 40px;">Manajemen Event/Acara/Seminar</span>
+                        <span style="display: block;margin-left: 40px;">Event</span>
                       </a>
                     </li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey"><i class="material-icons">question_answer</i>Message Broadcast</a>
+                      <a href="{{ url('/article') }}" class="waves-effect waves-grey"><i class="material-icons">library_books</i>Artikel dan Kegiatan</a>
                     </li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey"><i class="material-icons">library_books</i>Artikel dan Kegiatan</a>
+                      <a href="{{ url('/message') }}" class="waves-effect waves-grey"><i class="material-icons">question_answer</i>Histori Pesan</a>
                     </li>
                     <li class="divider"></li>
                     <li class="no-padding">
                       <a class="waves-effect waves-grey" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons">android</i>About Us</a>
                     </li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Keluar</a>
+                      <a href="{{ url('/logout') }}"
+                         onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();"
+                         class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Keluar</a>
                     </li>
                 </ul>
                 <div class="footer">

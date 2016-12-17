@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('styles')
-<link href="/assets/plugins/pickadate/pickadate.css" rel="stylesheet"></script>
+<link href="/assets/plugins/pickadate/pickadate.css" rel="stylesheet" />
 @endsection
 
 @section('scripts')
@@ -19,7 +19,7 @@
               <div class="card-content">
                   <form id="example-form" action="/member/{{$data->id}}" method="POST" autocomplete="off">
                       <div>
-                          <h4>Data Anggota</h4>
+                          <h4>Edit Data Anggota</h4>
                           <section>
                               <div class="wizard-content">
                                   @if($errors->any())
@@ -59,7 +59,7 @@
                                               </div>
                                               <div class="input-field col s12">
                                                   <label for="bio">Bio</label>
-                                                  <textarea id="bio" class="materialize-textarea" length="190">{{ $data->bio!=null ? $data->bio : old('bio') }}</textarea>
+                                                  <textarea id="bio" name="bio" class="materialize-textarea" length="190">{{ $data->bio!=null ? $data->bio : old('bio') }}</textarea>
                                               </div>
                                           </div>
                                       </div>
