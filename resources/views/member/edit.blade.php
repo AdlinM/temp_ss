@@ -19,7 +19,7 @@
               <div class="card-content">
                   <form id="example-form" action="/member/{{$data->id}}" method="POST" autocomplete="off">
                       <div>
-                          <h4>Personal Info</h4>
+                          <h4>Data Anggota</h4>
                           <section>
                               <div class="wizard-content">
                                   @if($errors->any())
@@ -41,6 +41,10 @@
                                   <div class="row">
                                       <div class="col m6">
                                           <div class="row">
+                                              <div class="input-field col s12">
+                                                  <label for="nim">NIM</label>
+                                                  <input id="nim" name="nim" type="text" class="required validate" value="{{ $data->nim!=null ? $data->nim : old('nim') }}">
+                                              </div>
                                               <div class="input-field col m6 s12">
                                                   <label for="firstName">Nama Depan</label>
                                                   <input id="firstName" name="firstName" type="text" class="required validate" value="{{ $data->firstName!=null ? $data->firstName : old('firstName') }}">
@@ -93,11 +97,9 @@
                                                           Get news and updates from Alpha
                                                       </label>
                                                   </div>-->
-                                              </div>
-                                          </div>
+                                            </div>
                                       </div>
                                       <div class="col m12">
-                                        <br />
                                         <div class="right">
                                           <a href="{{ url('/member/') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
@@ -105,10 +107,10 @@
                                           <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>
                                         </div>
                                       </div>
-                                    </div>
-                                </div>
-                            </section>
-                  </div>
+                                  </div>
+                              </div>
+                         </section>
+                     </div>
                   </form>
               </div>
           </div>

@@ -30,7 +30,7 @@
                                 <th>Semester</th>
                                 <th>Waktu Bergabung</th>
                                 <th>No Telp</th>
-                                <th>Action</th>
+                                <th style="width:120px;">Action</th>
                             </tr>
                         </thead>
                         <tbody>

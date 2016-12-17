@@ -19,7 +19,7 @@
               <div class="card-content">
                   <form id="example-form" action="{{ url('/member') }}" method="POST" autocomplete="off">
                       <div>
-                          <h4>Personal Info</h4>
+                          <h4>Data Anggota</h4>
                           <section>
                               <div class="wizard-content">
                                   @if($errors->any())
@@ -41,12 +41,16 @@
                                   <div class="row">
                                       <div class="col m6">
                                           <div class="row">
+                                               <div class="input-field col s12">
+                                                  <label for="NIM">NIM</label>
+                                                  <input id="nim" name="nim" type="text" class="required validate" value="{{ old('nim') }}">
+                                              </div>
                                               <div class="input-field col m6 s12">
                                                   <label for="firstName">Nama Depan</label>
                                                   <input id="firstName" name="firstName" type="text" class="required validate" value="{{ old('firstName') }}">
                                               </div>
                                               <div class="input-field col m6 s12">
-                                                  <label for="lastName">Nama Terakhir</label>
+                                                  <label for="lastName">Nama Belakang</label>
                                                   <input id="lastName" name="lastName" type="text" class="required validate" value="{{ old('lastName') }}">
                                               </div>
                                               <div class="input-field col s12">
@@ -93,11 +97,9 @@
                                                           Get news and updates from Alpha
                                                       </label>
                                                   </div>-->
-                                              </div>
                                           </div>
                                       </div>
                                       <div class="col m12">
-                                        <br />
                                         <div class="right">
                                           <a href="{{ url('/member') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
@@ -105,9 +107,9 @@
                                         </div>
                                       </div>
                                     </div>
-                                </div>
-                            </section>
-                  </div>
+                              </div>
+                          </section>
+                      </div>
                   </form>
               </div>
           </div>

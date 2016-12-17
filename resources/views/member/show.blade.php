@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-content">
               <div>
-                <h4>Detail Member</h4>
+                <h4>Detail Data Anggota</h4>
                 <section>
                     <div class="wizard-content">
                         @if(Session::has('flash_message'))
@@ -31,12 +31,16 @@
                                         <input id="firstName" type="text" class="validate" value="{{ $data->firstName!=null ? $data->firstName : '' }}" disabled>
                                     </div>
                                     <div class="input-field col m6 s12">
-                                        <label for="lastName">Nama Terakhir</label>
+                                        <label for="lastName">Nama Belankang</label>
                                         <input id="lastName" type="text" class="required validate" value="{{ $data->lastName!=null ? $data->lastName : ''}}" disabled>
                                     </div>
                                     <div class="input-field col s12">
                                         <label for="email">Email</label>
                                         <input id="email" type="email" class="required validate" value="{{ $data->email!=null ? $data->email : '' }}" disabled>
+                                    </div>
+                                     <div class="input-field col s12">
+                                        <label for="nim">Nim</label>
+                                        <input id="nim" type="text" class="required validate" value="{{ $data->nim!=null ? $data->nim : '' }}" disabled>
                                     </div>
                                     <div class="input-field col s12">
                                         <label for="bio">Bio</label>
