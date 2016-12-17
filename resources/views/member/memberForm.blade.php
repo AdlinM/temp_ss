@@ -17,7 +17,7 @@
       <div class="col s12 m12 l12">
           <div class="card">
               <div class="card-content">
-                  <form id="example-form" action="/member" method="post" autocomplete="off">
+                  <form id="example-form" action="{{ url('/member') }}" method="POST" autocomplete="off">
                       <div>
                           <h4>Personal Info</h4>
                           <section>
@@ -34,7 +34,7 @@
 
                                   @if(Session::has('flash_message'))
                                       <div class="alert alert-success text-green" style="color:green">
-                                          {{ Session::get('flash_message') }}
+                                          {!!Session::get('flash_message')!!}
                                       </div>
                                   @endif
 
@@ -43,11 +43,11 @@
                                           <div class="row">
                                               <div class="input-field col m6 s12">
                                                   <label for="firstName">Nama Depan</label>
-                                                  <input id="firstName" name="firstName" type="text" class="required validate" value="{{ $data->firstName!=null ? $data->firstName : old('firstName') }}">
+                                                  <input id="firstName" name="firstName" type="text" class="required validate" value="{{ old('firstName') }}">
                                               </div>
                                               <div class="input-field col m6 s12">
                                                   <label for="lastName">Nama Terakhir</label>
-                                                  <input id="lastName" name="lastName" type="text" class="required validate" value="{{ $data->lastName!=null ? $data->lastName : old('lastName') }}">
+                                                  <input id="lastName" name="lastName" type="text" class="required validate" value="{{ old('lastName') }}">
                                               </div>
                                               <div class="input-field col s12">
                                                   <label for="email">Email</label>
@@ -55,7 +55,7 @@
                                               </div>
                                               <div class="input-field col s12">
                                                   <label for="bio">Bio</label>
-                                                  <textarea id="bio" class="materialize-textarea" length="190" value="{{ old('bio') }}"></textarea>
+                                                  <textarea id="bio" class="materialize-textarea" length="190">{{ old('bio') }}</textarea>
                                               </div>
                                           </div>
                                       </div>
@@ -65,8 +65,8 @@
                                                 <select id="jurusan" name="jurusan">
                                                     <option value="">Jurusan...</option>
                                                     <option value="AF">Teknik Informatika</option>
-                                                    <option value="AF">Sistem Informasi</option>
-                                                    <option value="AF">Manajemen Informatika</option>
+                                                    <option value="SI">Sistem Informasi</option>
+                                                    <option value="MI">Manajemen Informatika</option>
                                                 </select>
                                               </div>
                                               <div class="input-field col m6 s12">
@@ -83,7 +83,7 @@
                                               </div>-->
                                               <div class="input-field col s12">
                                                   <label for="address">Alamat</label>
-                                                  <input id="address" name="address" type="text">
+                                                  <textarea id="address" name="address" cols="4" class="materialize-textarea">{{ old('address') }}</textarea>
                                               </div>
                                               <!--<div class="input-field col s12">
                                                   <div class="switch m-b-md">
@@ -99,7 +99,7 @@
                                       <div class="col m12">
                                         <br />
                                         <div class="right">
-                                          <a class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
+                                          <a href="{{ url('/member') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
                                           <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>
                                         </div>

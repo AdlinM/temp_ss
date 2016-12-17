@@ -5,6 +5,7 @@ namespace ShangriLa\Http\Controllers;
 use Illuminate\Http\Request;
 use ShangriLa\Member;
 use ShangriLa\smsgateway;
+use Session;
 
 class MemberController extends Controller
 {
@@ -64,9 +65,9 @@ class MemberController extends Controller
 
         Member::create($input);
 
-        return redirect()->back();
-
         Session::flash('flash_message', 'Member successfully added!');
+
+        return redirect()->back();
 
 
         /*$input = new Member;
@@ -104,8 +105,7 @@ class MemberController extends Controller
     {
         $data = Member::findOrFail($id);
 
-        //$data = Member::select('select * from member where id = :id', ['id' => $id]);
-        return view('member.memberForm', compact('data'));
+        return view('member.edit', compact('data'));
     }
 
     /**
@@ -117,7 +117,22 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $member = Member::findOrFail($id);
+
+      $this->validate($request, [
+          'firstName' => 'required',
+          'email' => 'required',
+          'jurusan' => 'required',
+          'phone' => 'required'
+      ]);
+
+      $input = $request->all();
+
+      $member->fill($input)->save();
+
+      Session::flash('flash_message', 'Member successfully Update!');
+
+      return redirect()->back();
     }
 
     /**
@@ -128,6 +143,12 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $data = Member::findOrFail($id);
+
+      $data->delete();
+
+      Session::flash('flash_message', 'Member successfully deleted!');
+
+      return redirect()->route('member.index');
     }
 }
