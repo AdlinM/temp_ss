@@ -9,6 +9,9 @@
 .note-editor .note-toolbar {
   z-index: 10 !important;
 }
+.material-design-hamburger a {
+    display: block !important;
+}
 </style>
 @endsection
 
@@ -89,6 +92,21 @@
                                           <div class="editor" id="first">
                                               tulis artikelmu disini...
                                           </div>
+                                      </div>
+                                      &nbsp;
+                                      <div class="col s12">
+                                          <label for="articleImg">Gambar Artikel atau Kegiatan</label>
+                                          <form action="#" class="p-v-xs">
+                                              <div class="file-field input-field">
+                                                  <div class="btn teal lighten-1">
+                                                      <span>File</span>
+                                                      <input type="file" multiple>
+                                                  </div>
+                                                  <div class="file-path-wrapper">
+                                                      <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                                                  </div>
+                                              </div>
+                                          </form>
                                       </div>
 
                                     <form id="example-form" action="{{ url('/member') }}" method="POST" autocomplete="off">

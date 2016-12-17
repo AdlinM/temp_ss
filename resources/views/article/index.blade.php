@@ -15,7 +15,7 @@
     <div class="col s12 m12 l12">
         <div class="card">
             <div class="card-content">
-                <h4> Artikel dan Kegiatan<a class="right waves-effect waves-light btn green m-b-xs" href="{{ url('/article/create') }}">+ Tambah</a></h4>
+                <h4> Artikel dan Kegiatan <a class="right waves-effect waves-light btn green m-b-xs" href="{{ url('/article/create') }}">+ Tambah</a></h4>
                 <table id="example" class="display responsive-table datatable-example">
                     <thead>
                         <tr>
