@@ -111,9 +111,14 @@
                     <h4 class="chapter-title">{{ config('app.name', 'ShangriLa') }}</h4>
                 </div>-->
                 <div class="header-title right">
-                  <a href="{{ url('/login') }}" class="waves-effect waves-grey btn-flat text-white"> Sign In </a>
-                  &nbsp;
-                  <a href="{{ url('/register') }}" class="waves-effect waves-grey btn-flat text-white"> Register </a>
+                    @if (Auth::check() == true)
+                        <a href="{{ url('/home') }}" class="waves-effect waves-grey btn-flat text-white"> Admin Page</a>
+                    @else
+                         <a href="{{ url('/login') }}" class="waves-effect waves-grey btn-flat text-white"> Sign In </a>
+                          &nbsp;
+                          <a href="{{ url('/register') }}" class="waves-effect waves-grey btn-flat text-white"> Register </a>
+                    @endif
+                 
                 </div>
             </div>
         </nav>

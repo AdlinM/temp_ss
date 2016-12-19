@@ -38,6 +38,12 @@
                                       </div>
                                   @endif
 
+                                  @if(Session::has('flash_message_fail'))
+                                      <div class="alert alert-success text-danger" style="color:red">
+                                          {!!Session::get('flash_message_fail')!!}
+                                      </div>
+                                  @endif
+
                                   <div class="row">
                                       <div class="col m6">
                                           <div class="row">
@@ -67,10 +73,10 @@
                                           <div class="row">
                                               <div class="input-field col m6 s12">
                                                 <select id="jurusan" name="jurusan">
-                                                    <option value="">Jurusan...</option>
-                                                    <option value="AF">Teknik Informatika</option>
-                                                    <option value="SI">Sistem Informasi</option>
-                                                    <option value="MI">Manajemen Informatika</option>
+                                                    <option value="" >Jurusan...</option>
+                                                    <option value="AF" {{ old('jurusan')=='AF' ? 'selected="selected"' : '' }} >Teknik Informatika</option>
+                                                    <option value="SI" {{ old('jurusan')=='SI' ? 'selected="selected"' : '' }} >Sistem Informasi</option>
+                                                    <option value="MI" {{ old('jurusan')=='MI' ? 'selected="selected"' : '' }} >Manajemen Informatika</option>
                                                 </select>
                                               </div>
                                               <div class="input-field col m6 s12">
@@ -97,6 +103,7 @@
                                                           Get news and updates from Alpha
                                                       </label>
                                                   </div>-->
+                                              <input type="hidden" value="" id="contactId" name="contactId" />
                                           </div>
                                       </div>
                                       <div class="col m12">

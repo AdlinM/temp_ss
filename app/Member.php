@@ -20,6 +20,7 @@ class Member extends Model
         'bio',
         'jurusan',
         'phone',
-        'address'
+        'address',
+        'contactId'
     ];
 }

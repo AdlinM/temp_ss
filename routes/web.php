@@ -28,6 +28,7 @@ Route::resource('event', 'EventController');
 
 //Route::get('/article', 'ArticleController@index');
 Route::resource('article', 'ArticleController');
+Route::get('/article/blog', 'ArticleController@blog');
 
 Route::resource('message','MessageController');
 

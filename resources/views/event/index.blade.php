@@ -22,10 +22,26 @@
                                 <th>Nama</th>
                                 <th>Tanggal</th>
                                 <th>Kategori</th>
-                                <th>Action</th>
+                                <th style="width:120px;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($datas as $data)
+                                <tr>
+                                    <td>{{$data->nama}}</td>
+                                    <td>{{$data->waktuAcara}}</td>
+                                    <td>{{$data->kategori}}</td>
+                                    <td>
+                                        <form action="event/{{ $data->id}}" method="post">
+                                        <a href="{{ route('event.show', $data->id) }}" class="btn btn-small teal"><i class="material-icons dp48">library_books</i></a>
+                                        <a href="{{ route('event.edit', $data->id) }}" class="btn btn-small blue"><i class="material-icons">mode_edit</i></a>
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="hidden" class="form-control" id="token" name="_token" value="{{ csrf_token() }}">
+                                        <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-small red"><i class="material-icons">delete</i></a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

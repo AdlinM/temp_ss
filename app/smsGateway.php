@@ -24,7 +24,6 @@ class SmsGateway {
         return $this->makeRequest('/api/v3/contacts/view/'.$id,'GET');
     }
 
-
     function getDevices ($page=1)
     {
         return $this->makeRequest('/api/v3/devices','GET',['page' => $page]);

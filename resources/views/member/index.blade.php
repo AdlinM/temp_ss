@@ -25,10 +25,10 @@
                     <table id="example" class="display responsive-table datatable-example">
                         <thead>
                             <tr>
+                                <th>NIM</th>
                                 <th>Nama</th>
                                 <th>Jurusan</th>
-                                <th>Semester</th>
-                                <th>Waktu Bergabung</th>
+                                <th>Waktu Pendaftaran</th>
                                 <th>No Telp</th>
                                 <th style="width:120px;">Action</th>
                             </tr>
@@ -36,9 +36,9 @@
                         <tbody>
                           @foreach($data as $m)
                           <tr>
+                            <td>{{ $m->nim }}</td>
                             <td>{{ $m->firstName }} {{ $m->lastName }}</td>
                             <td>{{ $m->jurusan }}</td>
-                            <td>V</td>
                             <td>{{ $m->created_at }}</td>
                             <td>{{ $m->phone}}</td>
                             <td>

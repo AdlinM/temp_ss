@@ -1,21 +1,15 @@
 @extends('layouts.admin')
 
 @section('styles')
-<link href="/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<link href="/assets/plugins/pickadate/pickadate.css" rel="stylesheet" />
 @endsection
 
 @section('scripts')
   <script src="/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
   <script src="/assets/plugins/jquery-validation/jquery.validate.min.js"></script>
   <script src="/assets/plugins/jquery-steps/jquery.steps.min.js"></script>
-  <script src="/assets/plugins/moment/moment.js"></script>
-  <script src="/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+  <script src="/assets/plugins/pickadate/pickadate.js"></script>
   <script src="/assets/js/pages/form_elements.js"></script>
-  <script>
-  $(function(){
-    $('#waktuAcara').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
-  });
-  </script>
 @endsection
 
 @section('content')
@@ -23,9 +17,9 @@
       <div class="col s12 m12 l12">
           <div class="card">
               <div class="card-content">
-                  <form id="example-form" action="{{ url('/event') }}" method="POST" autocomplete="off">
+                  <form id="example-form" action="/event/{{$data->id}}" method="POST" autocomplete="off">
                       <div>
-                          <h4>Tambah Event</h4>
+                          <h4>Edit Event</h4>
                           <section>
                               <div class="wizard-content">
                                   @if($errors->any())
@@ -49,44 +43,44 @@
                                           <div class="row">
                                               <div class="input-field col s12">
                                                   <label for="nama">Nama Event</label>
-                                                  <input id="nama" name="nama" type="text" class="required validate" value="{{ old('nama') }}">
+                                                  <input id="nama" name="nama" type="text" class="required validate" value="{{ $data->nama }}">
                                               </div>
                                               <div class="input-field col s12">
                                                   <label for="waktuAcara">Tanggal Acara</label>
-                                                  <input id="waktuAcara" name="waktuAcara" type="text" class="validate floating-label" value="{{ old('eventDate') }}">
+                                                  <input id="waktuAcara" name="waktuAcara" type="text" class="validate floating-label" value="{{ $data->waktuAcara }}">
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col m6 s12">
                                           <div class="row">
                                               <div class="input-field col s12">
-                                                <select id="kategori" name="kategori">
-                                                    <option value="">Kategori...</option>
-                                                    <option value="Harian">Event Harian</option>
-                                                    <option value="Bulanan">Event Bulanan</option>
-                                                    <option value="Seminar">Seminar</option>
+                                                <select id="kategori" name="kategori" value = "{{ $data->kategori }}">
+                                                    <option value="Harian" {{ $data->kategori=='Harian' ? 'selected="selected"' : '' }}>Event Harian</option>
+                                                    <option value="Bulanan" {{ $data->kategori=='Bulanan' ? 'selected="selected"' : '' }}>Event Bulanan</option>
+                                                    <option value="Seminar" {{ $data->kategori=='Seminar' ? 'selected="selected"' : '' }}>Seminar</option>
                                                 </select>
                                               </div>
                                               <div class="input-field col s12">
                                                   <label for="deskripsi">Deskripsi</label>
-                                                  <textarea id="deskripsi" name="deskripsi" class="materialize-textarea" rows="100">{{ old('deskripsi') }}</textarea>
+                                                  <textarea id="deskripsi" name="deskripsi" class="materialize-textarea" rows="100">{{ $data->deskripsi }}</textarea>
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col m12">
                                         <div class="right">
-                                          <a href="{{ url('/member') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
+                                          <a href="{{ url('/event') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
+                                          <input type="hidden" name="_method" value="put">
                                           <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>
                                         </div>
                                       </div>
                                     </div>
                                 </div>
                           </section>
-                      </div>
+                     </div>
                   </form>
               </div>
           </div>
       </div>
-   </div>
+  </div>
 @endsection

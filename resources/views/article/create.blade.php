@@ -81,39 +81,37 @@
                                           {!!Session::get('flash_message')!!}
                                       </div>
                                   @endif
+                                   <form id="example-form" action="{{ url('/article') }}" method="POST" autocomplete="off">
 
                                   <div class="row">
                                       <div class="input-field col s12">
-                                          <label for="title">Judul</label>
-                                          <input id="firstName" name="firstName" type="text" class="required validate" value="{{ old('title') }}">
+                                          <label for="judul">Judul</label>
+                                          <input id="judul" name="judul" type="text" class="required validate" value="{{ old('title') }}">
                                       </div>
 
                                       <div class="input-field col s12">
-                                          <div class="editor" id="first">
-                                              tulis artikelmu disini...
-                                          </div>
+                                          <textarea class="editor" id="first" name = "content" placeholder="Tulis disini...">
+                                          </textarea>
                                       </div>
                                       &nbsp;
                                       <div class="col s12">
                                           <label for="articleImg">Gambar Artikel atau Kegiatan</label>
-                                          <form action="#" class="p-v-xs">
                                               <div class="file-field input-field">
                                                   <div class="btn teal lighten-1">
                                                       <span>File</span>
-                                                      <input type="file" multiple>
+                                                      <input type="file" multiple name="image">
                                                   </div>
                                                   <div class="file-path-wrapper">
                                                       <input class="file-path validate" type="text" placeholder="Upload one or more files">
                                                   </div>
                                               </div>
-                                          </form>
                                       </div>
 
-                                    <form id="example-form" action="{{ url('/member') }}" method="POST" autocomplete="off">
+                                   
                                       <div class="col m12">
                                         <br/>
                                         <div class="right">
-                                          <a href="{{ url('/member') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
+                                          <a href="{{ url('/article') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
                                           <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>
                                         </div>

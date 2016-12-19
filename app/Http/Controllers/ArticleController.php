@@ -3,9 +3,17 @@
 namespace ShangriLa\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\ImageServiceProvider;
+use ShangriLa\Article;
+use ShangriLa\smsgateway;
+use Session;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +42,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+          'judul' => 'required',
+          'content' => 'required'
+      ]);
+
+        $article = new Article;
+        $article->judul   = $request->judul;
+        $article->content = $request->content;
+        $article->image   = $request->image;
+        $event->save();
+
+        Session::flash('flash_message', 'Article successfully added!');
+
+        return redirect()->back();
     }
 
     /**
@@ -79,6 +100,12 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = article::findOrFail($id);
+
+        $data->delete();
+
+        Session::flash('flash_message', 'Article successfully deleted!');
+
+        return redirect()->back();
     }
 }
