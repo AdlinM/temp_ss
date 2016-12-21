@@ -118,7 +118,7 @@
                           &nbsp;
                           <a href="{{ url('/register') }}" class="waves-effect waves-grey btn-flat text-white"> Register </a>
                     @endif
-                 
+
                 </div>
             </div>
         </nav>
@@ -154,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col s6">
                     <div class=" ">
                         <div class="center">
@@ -163,12 +163,34 @@
                     </div>
                 </div>
             </div>
-            
 
             <div class="row">
               <div class="parallax-container">
+                  <div class="parallax"><img src="assets/images/grafik.jpg"></div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="parallax-container">
+                  <div class="parallax"><img src="assets/images/bg2.jpg"></div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="parallax-container">
+                <div class="row" >
+                  <div class="col s12"></div>
+                  <div class="col m6">
+                    <h3 class="center text-white">About US</h3>
+                  </div>
+                  <div class="col m6">
+                    <h3 class="center text-white">Share Twitter</h3>
+                  </div>
+                </div>
                   <div class="parallax"><img src="assets/images/mountains3.png"></div>
-                  
+
               </div>
             </div>
     </div>

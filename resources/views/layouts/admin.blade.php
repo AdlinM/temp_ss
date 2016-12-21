@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-                    <li class="no-padding active">
+                    <li class="no-padding">
                       <a class="waves-effect waves-grey" href="{{ url('/home') }}"><i class="material-icons">settings_input_svideo</i>Dashboard / Statistik</a>
                     </li>
                     <li class="no-padding">

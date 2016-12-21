@@ -4,6 +4,7 @@ namespace ShangriLa\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ShangriLa\Event;
+use ShangriLa\Member;
 use ShangriLa\smsgateway;
 use Session;
 
@@ -71,7 +72,10 @@ class EventController extends Controller
     public function show($id)
     {
         $data =  event::findOrFail($id);
-        return view('event.show', compact('data'));
+
+        $member = Member::all();
+
+        return view('event.show', compact('data'))->with('member',$member);
     }
 
     /**

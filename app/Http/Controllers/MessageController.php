@@ -3,6 +3,8 @@
 namespace ShangriLa\Http\Controllers;
 
 use Illuminate\Http\Request;
+use ShangriLa\smsgateway;
+use Session;
 
 class MessageController extends Controller
 {
@@ -16,69 +18,31 @@ class MessageController extends Controller
         return view('message.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function sendBroadcast(Request $request)
     {
-        //
-    }
+      Session::flash('flash_message', 'success to send! see status in page sms history.');
+      /*$txPhone = "";
+      foreach($request->phoneNumber as $p){
+        $txPhone .= $p.",";
+      }
+      return trim($txPhone, ",");*/
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+      $smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+      $deviceID = 35594;
+      $numbers = $request->phoneNumber;
+      $message = $request->message;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+      $options = [];/*
+      'send_at' => strtotime('+10 minutes'), // Send the message in 10 minutes
+      'expires_at' => strtotime('+1 hour') // Cancel the message in 1 hour if the message is not yet sent
+    ];*/
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+      //Please note options is no required and can be left out
+      $result = $smsGateway->sendMessageToManyNumbers($request->phoneNumber, $message, $deviceID);
+
+      $smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
+      return redirect()->back();
     }
 }

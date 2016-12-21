@@ -30,6 +30,7 @@ Route::resource('event', 'EventController');
 Route::resource('article', 'ArticleController');
 Route::get('/article/blog', 'ArticleController@blog');
 
-Route::resource('message','MessageController');
+//Route::resource('message','MessageController');
+Route::post('/message/sendBroadcast','MessageController@sendBroadcast');
 
 Route::get('/home', 'HomeController@index');

@@ -44,3 +44,32 @@
 .text-grey {
   color:#ccc;
 }
+
+.text-grey {
+  color:#fff;
+}
+
+.modal .modal-header, .modal .modal-footer h4{
+    padding: 20px 10px;
+    padding-bottom: 0px;
+    position: relative;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+    background: #fafafa;
+}
+
+.modal .modal-header h4, .modal .modal-footer h4 {
+    line-height: 24px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.modal .modal-header h4,.modal .modal-footer h4 {
+    color: rgba(0,0,0,.54);
+    font-size: 13px;
+    font-weight: 700;
+}
+.modal .modal-header h4.modal .modal-footer h4 {
+    text-transform: uppercase;
+}
