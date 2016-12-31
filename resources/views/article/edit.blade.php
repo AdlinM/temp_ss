@@ -84,16 +84,16 @@
                                           {!!Session::get('flash_message')!!}
                                       </div>
                                   @endif
-                                   <form id="example-form" action="{{ url('/article') }}" method="POST" autocomplete="off">
+                                   <form id="example-form" action="/article/{{$data->id}}" method="POST" autocomplete="off">
 
                                   <div class="row">
                                       <div class="input-field col s12">
                                           <label for="judul">Judul</label>
-                                          <input id="judul" name="judul" type="text" class="required validate" value="{{ old('judul') }}" autofocus>
+                                          <input id="judul" name="judul" type="text" class="required validate" value="{{ $data->judul!=null ? $data->judul : old('judul') }}" autofocus>
                                       </div>
 
                                       <div class="input-field col s12">
-                                          <textarea class="editor" id="first" name = "content" placeholder="Tulis disini...">{{ old('content')}}</textarea>
+                                          <textarea class="editor" id="first" name = "content" placeholder="Tulis disini...">{{ $data->content!=null ? $data->content : old('content') }}</textarea>
                                       </div>
                                       &nbsp;
                                       <div class="col s12">
@@ -115,6 +115,7 @@
                                         <div class="right">
                                           <a href="{{ url('/article') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
+                                          <input type="hidden" name="_method" value="put">
                                           <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>
                                         </div>
                                       </div>

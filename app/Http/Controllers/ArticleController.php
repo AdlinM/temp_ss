@@ -21,7 +21,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article.index');
+        $data = Article::all();
+        return view('article.index', compact('data'));
     }
 
     /**
@@ -51,11 +52,15 @@ class ArticleController extends Controller
         $article->judul   = $request->judul;
         $article->content = $request->content;
         $article->image   = $request->image;
-        $event->save();
 
-        Session::flash('flash_message', 'Article successfully added!');
+        /*$input = $request->all();
+        Article::create($input);*/
 
-        return redirect()->back();
+        if( $article->save()) {
+          Session::flash('flash_message', 'Article successfully added!');
+
+          return redirect()->route('article.edit', ['id' => $article->id ]);
+        }
     }
 
     /**
@@ -77,7 +82,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Article::findOrFail($id);
+
+        return view('article.edit', compact('data'));
     }
 
     /**
@@ -89,7 +96,20 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::findOrFail($id);
+
+        $this->validate($request, [
+            'judul' => 'required',
+            'content' => 'required'
+        ]);
+
+        $input = $request->all();
+
+        $article->fill($input)->save();
+
+        Session::flash('flash_message', 'Member successfully Update!');
+
+        return redirect()->back();
     }
 
     /**
@@ -107,5 +127,21 @@ class ArticleController extends Controller
         Session::flash('flash_message', 'Article successfully deleted!');
 
         return redirect()->back();
+    }
+
+    public function updatePublished(Request $request){
+          $result = null;
+          $article = Article::findOrFail($request->id);
+
+          if($article == null) {
+            $result = ['status'=>0,'message'=>"Data not found!"];
+          } else {
+            $article->isPublished   = $request->isPublished;
+            if( !$article->save())
+              $result = ['status'=>0,'message'=>"Failed Saved!"];
+            else
+              $result = ['status'=>1,'message'=>"OK!"];
+        }
+        return $result;
     }
 }

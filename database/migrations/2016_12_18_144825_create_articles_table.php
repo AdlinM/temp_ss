@@ -16,7 +16,8 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
           $table->increments('id');
           $table->string('judul', 100);
-          $table->text('content');
+          $table->longText('content');
+          $table->boolean('isPublished')->default(0);
           $table->binary('image')->nullable();
 
           $table->timestamps();

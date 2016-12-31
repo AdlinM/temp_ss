@@ -163,7 +163,7 @@
                     </li>
                     <li class="divider"></li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons">android</i>About Us</a>
+                      <a class="waves-effect waves-grey" ><i class="material-icons">android</i>About Us</a>
                     </li>
                     <li class="no-padding">
                       <a href="{{ url('/logout') }}"
