@@ -4,6 +4,7 @@ namespace ShangriLa\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ShangriLa\smsgateway;
+use ShangriLa\Member;
 use Session;
 
 class MessageController extends Controller
@@ -13,22 +14,40 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($page = 1)
     {
-        return view('message.index');
-    }
+      $smsGateway = new SmsGateway();
 
+      $data = $smsGateway->getMessages($page);
+      $resData = $data['response']['result'];
+      return $data;
+      //return $data['response']['result'][0];
+
+      $member = Member::all();
+
+      $result = [];
+      $index = 0;
+      for ($i = 0;$i<sizeof($member);$i++)
+      {
+        for ($j = $i;$j<sizeof($resData);$j++)
+        {
+            if($resData[$j]['contact']['number'] == $member[$i]->phone) {
+              $result[$index]['name'] = $member[$i]->firstName;
+              $result[$index]['sent_at'] = $resData[$j]['sent_at'];
+              $result[$index]['status'] = $resData[$j]['status'];
+              $index++;
+            }
+        }
+      }
+
+      return view('message.index', compact('result'));
+    }
 
     public function sendBroadcast(Request $request)
     {
       Session::flash('flash_message', 'success to send! see status in page sms history.');
-      /*$txPhone = "";
-      foreach($request->phoneNumber as $p){
-        $txPhone .= $p.",";
-      }
-      return trim($txPhone, ",");*/
 
-      $smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
+      $smsGateway = new SmsGateway();
 
       $deviceID = 35594;
       $numbers = $request->phoneNumber;
@@ -42,7 +61,6 @@ class MessageController extends Controller
       //Please note options is no required and can be left out
       $result = $smsGateway->sendMessageToManyNumbers($request->phoneNumber, $message, $deviceID);
 
-      $smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
       return redirect()->back();
     }
 }

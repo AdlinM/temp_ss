@@ -210,6 +210,23 @@
     <script src="/assets/plugins/google-code-prettify/prettify.js"></script>
     <script src="/assets/js/alpha.min.js"></script>
     <script src="/assets/js/pages/ui-parallax.js"></script>
+    <!--<script src="/assets/plugins/countUp/countUp.js"></script>
+
+    <script>
+    $(function(){
+      //count Up
+      var options = {
+        useEasing : true,
+        useGrouping : true,
+        separator : ',',
+        decimal : '.',
+        prefix : '',
+        suffix : ''
+      };
+      var demo = new CountUp("myTargetElement", 3342, 0, 0, 2.5, options);
+      demo.start();
+    })
+  </script>-->
 
 </body>
 

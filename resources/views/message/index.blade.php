@@ -18,13 +18,21 @@
                     <h4>Histori Pesan</h4>
                     <table id="example" class="display responsive-table datatable-example">
                         <thead>
-                            <tr>
-                                <th style="width:200px">Tanggal Kirim</th>
-                                <th>Isi</th>
-                                <th style="width:120px">Action</th>
-                            </tr>
+                          <tr>
+                              <th>Nama Anggota</th>
+                              <th>Status</th>
+                              <th>Waktu Kirim</th>
+                          </tr>
+
                         </thead>
                         <tbody>
+                              @foreach ($result as $d)
+                                  <tr>
+                                      <td>{{ $d['name'] }}</td>
+                                      <td>{{ $d['status'] }}</td>
+                                      <td>{{ $d['sent_at'] }}</td>
+                                  </tr>
+                              @endforeach
                         </tbody>
                     </table>
                 </div>

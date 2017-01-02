@@ -21,32 +21,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        // declare var array
-        //$data = array();
-
         // get data from db
         $data = Member::all();
-
-        /*
-        // get data from smsGateway
-        $smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
-        $page = 1;
-        $result = $smsGateway->getContacts($page);
-
-        //return $result;
-
-        // do selection (inner join data by number)
-        if($result['response']['success'] == true) {
-          $dataContact = $result['response']['result']['data'];
-          for($i=0;$i<sizeof($dataContact);$i++)
-          {
-            for($j=$i;$j<sizeof($member);$j++){
-              if($dataContact[$i]['number'] == $member[$j]->phone)
-                $data[] = $member[$j];
-            }
-          }
-        }
-        */
 
         //return selection to list
         return view('member.index', compact('data'));
@@ -79,20 +55,9 @@ class MemberController extends Controller
           'bio' => 'max:190'
       ]);
 
-      //$smsGateway = new SmsGateway('adlin.asus@gmail.com', 'smsgateway321');
-      //$result = $smsGateway->createContact($request['firstName'] . " " . $request ['lastName'] , $request['phone']);
-
-      // if success save to smsContact, add to dbase
-      //if($result['response']['success'] == true) {
-      //$request->contactId = $result['response']['result']['user_id'];
-        $input = $request->all();
-        Member::create($input);
-        Session::flash('flash_message', 'Member successfully added!');
-      //} else {
-      //  Session::flash('flash_message_fail', 'Member unsuccessfully added. Connection Error Occured.');
-
-      //  return redirect()->route('member.create')->withInput();
-      //}
+      $input = $request->all();
+      Member::create($input);
+      Session::flash('flash_message', 'Member successfully added!');
 
       return redirect()->back();
     }

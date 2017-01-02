@@ -6,10 +6,9 @@ class SmsGateway {
 
     static $baseUrl = "https://smsgateway.me";
 
-
-    function __construct($email,$password) {
-        $this->email = $email;
-        $this->password = $password;
+    function __construct() { //$email,$password
+        $this->email = 'adlin.asus@gmail.com'; //$email;
+        $this->password = 'smsgateway321'; //$password;
     }
 
     function createContact ($name,$number) {
