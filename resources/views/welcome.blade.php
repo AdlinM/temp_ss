@@ -52,6 +52,10 @@
           .text-white {
             color:white !important;
           }
+
+          h3 {
+            font-weight: 300;
+          }
         </style>
 
 
@@ -148,7 +152,7 @@
                 <div class="col s6">
                     <div class=" " style="padding: 70px 100px;">
                         <div>
-                            <h5><p align="justify">Kenapa memakai Shangri-La?</p></h5>
+                            <h5><p align="justify"><strong>ShangriLa</strong> Berawal dari Gagasan Sederhana</p></h5>
                             <p>Sebuah pelatihan yang bertujuan untuk memperluas wawasan, meningkatkan kompetensi, dan menanamkan pilar-pilar karakter dan kepemimpinan sekaligus memperluas jaringan dari pesertanya. Pelatihan ini dikemas dalam bentuk diskusi, simulasi, workshop, games, outbond, serta unjuk ekspresi. Hingga saat ini, FIM memiliki alumni pemuda dan mahasiswa dengan jumlah lebih dari 2000 orang yang tersebar di seluruh Indonesia dengan latar belakang minat dan aktivitas seperti pendidikan, kerelawanan, pemberdayaan masyarakat, lingkungan, sosial politik ekonomi, seni dan budaya. dalam kegiatan online maupun offline.</p>
                         </div>
                     </div>
@@ -163,18 +167,21 @@
                 </div>
             </div>
 
+           <div class="row text-white" style="background:gray;">
+             <div class="col s12">
+                <h3 class="center" style="padding:50px 0px"> Kami akan terus berkembang</h3>
+             </div>
+             <div class="col s3 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->eventCount }}</h1>Pelatihan</div>
+             <div class="col s3 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->AngkatanCount }}</h1>Angkatan</div>
+             <div class="col s3 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->memberCount }}</h1>Anggota</div>
+             <div class="col s3 center"><i class="material-icons">more_vert</i></div>
+             <div class="col s12" style="margin:40px"></div>
+           </div>
+
             <div class="row">
               <div class="parallax-container">
-                  <div class="parallax"><img src="assets/images/grafik.jpg"></div>
-
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="parallax-container">
-                  <div class="parallax"><img src="assets/images/bg2.jpg"></div>
-
-              </div>
+                 <div class="parallax"><img src="assets/images/bg2.jpg"></div>
+               </div>
             </div>
 
             <div class="row">

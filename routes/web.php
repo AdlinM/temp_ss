@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
 
 
 Auth::routes();
 
 
-//Route::get('/member', 'MemberController@index');
-//Route::get('/member/form', 'MemberController@memberForm');
 Route::resource('member', 'MemberController');
 
 //Route::get('/event/calendar', 'EventController@eventCalendar');
