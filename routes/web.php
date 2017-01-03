@@ -29,4 +29,5 @@ Route::resource('article', 'ArticleController');
 Route::post('/message/sendBroadcast','MessageController@sendBroadcast');
 Route::resource('message','MessageController');
 
+Route::get('/profile', 'HomeController@profile');
 Route::get('/home', 'HomeController@index');

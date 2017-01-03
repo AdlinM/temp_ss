@@ -158,12 +158,15 @@
                     <li class="no-padding">
                       <a href="{{ url('/article') }}" class="waves-effect waves-grey"><i class="material-icons">library_books</i>Artikel dan Kegiatan</a>
                     </li>
-                    <li class="no-padding">
+                    <!--<li class="no-padding">
                       <a href="{{ url('/message') }}" class="waves-effect waves-grey"><i class="material-icons">question_answer</i>Histori Pesan</a>
-                    </li>
+                    </li>-->
                     <li class="divider"></li>
                     <li class="no-padding">
-                      <a class="waves-effect waves-grey" ><i class="material-icons">android</i>About Us</a>
+                      <a href="{{ url('/profile') }}" class="waves-effect waves-grey" ><i class="material-icons">android</i>Profil Organisasi</a>
+                    </li>
+                    <li class="no-padding">
+                      <a href="{{ url('/') }}" class="waves-effect waves-grey" ><i class="material-icons">view_module</i>Home Page</a>
                     </li>
                     <li class="no-padding">
                       <a href="{{ url('/logout') }}"

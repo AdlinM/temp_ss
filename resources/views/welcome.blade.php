@@ -116,7 +116,7 @@
                 </div>-->
                 <div class="header-title right">
                     @if (Auth::check() == true)
-                        <a href="{{ url('/home') }}" class="waves-effect waves-grey btn-flat text-white"> Admin Page</a>
+                        <a href="{{ url('/home') }}" class="waves-effect waves-grey btn-flat text-white"> Admin Panel</a>
                     @else
                          <a href="{{ url('/login') }}" class="waves-effect waves-grey btn-flat text-white"> Sign In </a>
                           <!--&nbsp;
