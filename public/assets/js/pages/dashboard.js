@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
-    setTimeout(function(){ Materialize.toast('Welcome to Alpha!', 4000) }, 4000);
-    setTimeout(function(){ Materialize.toast('You have 4 new notifications', 4000) }, 11000);
+    //setTimeout(function(){ Materialize.toast('Welcome to Alpha!', 4000) }, 4000);
+    //setTimeout(function(){ Materialize.toast('You have 4 new notifications', 4000) }, 11000);
 
 
 
@@ -20,6 +20,7 @@ $( document ).ready(function() {
     });
 
     // Peity Chart
+
     $.fn.peity.defaults.pie = {
         delimiter: null,
         fill: ["#26A69A", "#e0e0e0", "#b2dfdb"],
@@ -28,6 +29,7 @@ $( document ).ready(function() {
         width: null
     };
     $("span.pie").peity("pie")
+
 
     // Radar Chart
     /*
@@ -296,7 +298,7 @@ $( document ).ready(function() {
 
     };
 
-    flotchart2();
+    //flotchart2();
 
 
     $(document).on("fixedSidebarClick", function() {

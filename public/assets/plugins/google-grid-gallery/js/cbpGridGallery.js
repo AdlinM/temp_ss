@@ -76,9 +76,9 @@
 		// index of current slideshow item
 		this.current = -1;
 		// slideshow control buttons
-		this.ctrlPrev = this.el.querySelector( 'section.slideshow > nav > i.nav-prev' );
-		this.ctrlNext = this.el.querySelector( 'section.slideshow > nav > i.nav-next' );
-		this.ctrlClose = this.el.querySelector( 'section.slideshow > nav > i.nav-close' );
+		this.ctrlPrev = this.el.querySelector( 'section.slideshow > nav > span.nav-prev' );
+		this.ctrlNext = this.el.querySelector( 'section.slideshow > nav > span.nav-next' );
+		this.ctrlClose = this.el.querySelector( 'section.slideshow > nav > span.nav-close' );
 		// init masonry grid
 		this._initMasonry();
 		// init events

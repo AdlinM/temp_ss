@@ -44,17 +44,22 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-          'judul' => 'required',
-          'content' => 'required'
-      ]);
+            'judul' => 'required',
+            'content' => 'required'
+        ]);
 
         $article = new Article;
         $article->judul   = $request->judul;
         $article->content = $request->content;
-        $article->image   = $request->image;
 
-        /*$input = $request->all();
-        Article::create($input);*/
+        /*$pathToFile = '/ArticleImage/' . $request->image;
+        // resize image
+        Image::make(Input::file('files')->getRealPath())
+           ->resize(870, null, true, false)
+           ->save($pathToFile);
+
+        // save image to database
+        $article->image = $pathToFile;*/
 
         if( $article->save()) {
           Session::flash('flash_message', 'Article successfully added!');
@@ -105,7 +110,19 @@ class ArticleController extends Controller
 
         $input = $request->all();
 
-        $article->fill($input)->save();
+        $article->judul   = $request->judul;
+        $article->content = $request->content;
+
+        /*$pathToFile = '/ArticleImage/' . $request->image;
+        // resize image
+        Image::make(Input::file('files')->getRealPath())
+           ->resize(870, null, true, false)
+           ->save($pathToFile);
+
+        // save image to database
+        $article->image = $pathToFile;*/
+
+        $article->save();
 
         Session::flash('flash_message', 'Member successfully Update!');
 

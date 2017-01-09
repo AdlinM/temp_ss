@@ -13,8 +13,10 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'judul',
         'content',
+        'isPublished',
         'image'
     ];
 }

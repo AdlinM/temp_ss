@@ -12,25 +12,27 @@
 @section('content')
 <div class="row">
     <div class="col s12">
-        <div class="page-title">Contact</div>
+      <div class="card">
+          <div class="card-content">
+              <h4>Profil Organisasi</h4>
+          </div>
+      </div>
     </div>
     <div class="col s12 m4 l3">
         <div class="card">
             <div class="card-content center-align">
                 <img src="assets/images/profile-image-1.png" class="responsive-img circle" width="128px" alt="">
                 <p class="m-t-lg flow-text">Organisasi XYZ</p>
-                <div class="chip m-t-sm blue-grey white-text">UI Designer</div>
-                <div class="chip m-t-sm blue-grey white-text">Developer</div>
+                <div class="chip m-t-sm blue-grey white-text">Kampus</div>
+                <div class="chip m-t-sm blue-grey white-text">Organisasi TI</div>
+                <div class="chip m-t-sm blue-grey white-text">Bidang X</div>
+                <div class="chip m-t-sm blue-grey white-text">Bidang Y</div>
             </div>
         </div>
         <div class="card">
             <div class="card-content">
-                <span class="card-title">Circles</span>
-                <div class="chip m-t-sm">Envato Market</div>
-                <div class="chip m-t-sm">Steelcoders</div>
-                <div class="chip m-t-sm">Family</div>
-                <div class="chip m-t-sm">Work</div>
-                <div class="chip m-t-sm">Friends</div>
+                <span class="card-title">Chanel Organisasi</span>
+                <div class="chip m-t-sm"></div>
             </div>
         </div>
     </div>
@@ -40,19 +42,19 @@
                 <div id="contact-map-canvas"></div>
             </div>
             <div class="card-content ">
-                <span class="card-title">Contact Info</span>
-                <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.</p>
+                <span class="card-title">Deskripsi</span>
+                <p>Organisasi ini adalah organisasi yang bergerak di bidang keorganisasian. Sehingga dapat dikatakan organisasi ini merupakan organisasi yang berkecimpung dalam bidang keorganisasian organisasi.</p>
             </div>
         </div>
     </div>
     <div class="col s12 m4 l4">
         <div class="card">
             <div class="card-content ">
-                <span class="card-title">Address</span>
+                <span class="card-title">Alamat</span>
                 <address>
-                    <strong>Twitter, Inc.</strong><br>
-                    795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>
+                    <strong>Organisasi XYZ.</strong><br>
+                    Jl. Pembangunan km 12 no. 12<br>
+                    Medan Magnet, Medan 20226<br>
                     <abbr title="Phone">P:</abbr> (123) 456-7890
                 </address>
             </div>

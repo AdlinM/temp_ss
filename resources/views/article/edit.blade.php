@@ -66,7 +66,11 @@
           <div class="card">
               <div class="card-content">
                       <div>
-                          <h4>Buat Artikel Baru</h4>
+                          <h4> Edit Artikel
+                            <a class="right waves-effect waves-light btn green m-b-xs" href="{{ url('/article/create') }}">+ Tambah Baru</a>
+                            <span class="right">&nbsp;</span>
+                            <a class="right waves-effect waves-grey btn white m-b-xs" href="{{ url('/article') }}">Kembali</a>
+                          </h4>
                           <section>
                               <div class="wizard-content">
                                   @if($errors->any())
@@ -96,7 +100,7 @@
                                           <textarea class="editor" id="first" name = "content" placeholder="Tulis disini...">{{ $data->content!=null ? $data->content : old('content') }}</textarea>
                                       </div>
                                       &nbsp;
-                                      <div class="col s12">
+                                      <!--<div class="col s12">
                                           <label for="articleImg">Gambar Artikel atau Kegiatan</label>
                                               <div class="file-field input-field">
                                                   <div class="btn teal lighten-1">
@@ -107,13 +111,12 @@
                                                       <input class="file-path validate" type="text" placeholder="Upload one or more files">
                                                   </div>
                                               </div>
-                                      </div>
+                                      </div>-->
 
 
                                       <div class="col m12">
                                         <br/>
                                         <div class="right">
-                                          <a href="{{ url('/article') }}" class="waves-effect waves-grey btn white m-b-xs">Kembali</a>
                                           {{ csrf_field() }}
                                           <input type="hidden" name="_method" value="put">
                                           <button type="submit" class="waves-effect waves-light btn m-b-xs"><i class="material-icons right">done</i>Simpan</button>

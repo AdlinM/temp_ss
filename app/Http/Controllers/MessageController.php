@@ -20,10 +20,10 @@ class MessageController extends Controller
 
       $data = $smsGateway->getMessages($page);
       $resData = $data['response']['result'];
-      return $data;
-      //return $data['response']['result'][0];
 
       $member = Member::all();
+      //var_dump($member);
+      //die;
 
       $result = [];
       $index = 0;
@@ -35,6 +35,7 @@ class MessageController extends Controller
               $result[$index]['name'] = $member[$i]->firstName;
               $result[$index]['sent_at'] = $resData[$j]['sent_at'];
               $result[$index]['status'] = $resData[$j]['status'];
+              $result[$index]['message'] = $resData[$j]['message'];
               $index++;
             }
         }

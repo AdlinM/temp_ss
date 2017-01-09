@@ -38,6 +38,7 @@
         <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
         <link href="/assets/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
 
+        <link href="assets/plugins/google-grid-gallery/css/component.css" rel="stylesheet">
 
         <!-- Theme Styles -->
         <link href="/assets/css/alpha.min.css" rel="stylesheet" type="text/css"/>
@@ -65,6 +66,16 @@
         <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script src="/assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+        <script>
+          function htmlEncode(value){
+            return $('<div/>').text(value).html();
+          }
+
+          function htmlDecode(value){
+            return $('<div/>').html(value).text();
+          }
+        </script>
 </head>
 <body>
     <div class="loader-bg"></div>
@@ -171,17 +182,64 @@
              <div class="col s12">
                 <h3 class="center" style="padding:50px 0px"> Kami akan terus berkembang</h3>
              </div>
-             <div class="col s3 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->eventCount }}</h1>Pelatihan</div>
-             <div class="col s3 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->AngkatanCount }}</h1>Angkatan</div>
-             <div class="col s3 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->memberCount }}</h1>Anggota</div>
-             <div class="col s3 center"><i class="material-icons">more_vert</i></div>
+             <div class="col s4 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->eventCount }}</h1>Pelatihan</div>
+             <div class="col s4 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->AngkatanCount }}</h1>Angkatan</div>
+             <div class="col s4 center"><i class="material-icons">more_vert</i><h1>{{ $ActCount[0]->memberCount }}</h1>Anggota</div>
              <div class="col s12" style="margin:40px"></div>
            </div>
 
-            <div class="row">
-              <div class="parallax-container">
-                 <div class="parallax"><img src="assets/images/bg2.jpg"></div>
-               </div>
+            <div class="row" style="background-color:rgb(244, 244, 244);">
+              <div class="col s12">
+                    <div id="grid-gallery" class="grid-gallery">
+                    	<section class="grid-wrap">
+                    		<ul class="grid">
+                    			<li class="grid-sizer"></li><!-- for Masonry column width -->
+                          @foreach($article as $a)
+                          <a href="{{ url('/articlepage', ['id'=>$a->id]) }}">
+                      			<li>
+                      				<figure>
+                      					<img src="assets/plugins/google-grid-gallery/img/thumb/{{ $i++ }}.png" alt="img01"/>
+                      					<figcaption>
+                                  <h5 class="flow-text">{{ $a->judul }}</h5>
+                                  <p id="article-{{ $a->id}}">
+                                    <script>
+                                      var artic = '#article-{{ $a->id}}';
+                                      $(artic).append(htmlDecode("{{ $a->content }}"));
+                                      var articLen = $(artic + ' > p').length;
+                                      if(articLen > 3) {
+                                        $(artic + ' > p:nth-of-type(3)').addClass("truncate");
+                                        $(artic + ' > p:nth-of-type(4)').addClass("truncate");
+                                        $(artic + ' > p:nth-of-type(4)').nextAll('p').remove();
+                                      }
+
+                                      var articLen = $(artic + ' > span').length;
+                                      if(articLen > 3) {
+                                        $(artic + ' > span:nth-of-type(3)').addClass("truncate");
+                                        $(artic + ' > span:nth-of-type(4)').addClass("truncate");
+                                        $(artic + ' > span:nth-of-type(4)').nextAll('span').remove();
+                                      }
+
+                                      var articLen = $(artic + ' > div').length;
+                                      if(articLen > 3) {
+                                        $(artic + ' > div:nth-of-type(3)').addClass("truncate");
+                                        $(artic + ' > div:nth-of-type(4)').addClass("truncate");
+                                        $(artic + ' > div:nth-of-type(4)').nextAll('div').remove();
+                                      }
+                                      /*$(artic + " > div" ).click(function() {
+                                        // `this` is the DOM element that was clicked
+                                        var index = $(artic + " > div" ).index( this );
+                                        alert("That was div index #" + index );
+                                      });*/
+                                    </script>
+                                </figcaption>
+                      				</figure>
+                      			</li>
+                          </a>
+                          @endforeach
+                    		</ul>
+                    	</section><!-- // grid-wrap -->
+                    </div>
+              </div>
             </div>
 
             <div class="row">
@@ -203,30 +261,21 @@
     <div class="left-sidebar-hover"></div>
 
     <!-- Javascripts -->
-    <script src="/assets/plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="assets/plugins/google-grid-gallery/js/modernizr.custom.js"></script>
     <script src="/assets/plugins/materialize/js/materialize.min.js"></script>
     <script src="/assets/plugins/material-preloader/js/materialPreloader.min.js"></script>
     <script src="/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
     <script src="/assets/plugins/google-code-prettify/prettify.js"></script>
+
     <script src="/assets/js/alpha.min.js"></script>
     <script src="/assets/js/pages/ui-parallax.js"></script>
-    <!--<script src="/assets/plugins/countUp/countUp.js"></script>
 
     <script>
     $(function(){
-      //count Up
-      var options = {
-        useEasing : true,
-        useGrouping : true,
-        separator : ',',
-        decimal : '.',
-        prefix : '',
-        suffix : ''
-      };
-      var demo = new CountUp("myTargetElement", 3342, 0, 0, 2.5, options);
-      demo.start();
-    })
-  </script>-->
+      $('#grid-gallery .grid-wrap figcaption').find('img').remove();
+      $('#grid-gallery .grid-wrap figcaption span').removeAttr('style');
+    });
+  </script>
 
 </body>
 

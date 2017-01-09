@@ -96,18 +96,18 @@
                                           <textarea class="editor" id="first" name = "content" placeholder="Tulis disini...">{{ old('content')}}</textarea>
                                       </div>
                                       &nbsp;
-                                      <div class="col s12">
-                                          <label for="articleImg">Gambar Artikel atau Kegiatan</label>
+                                      <!--<div class="col s12">
+                                          <label for="articleImg">Cover Article</label>
                                               <div class="file-field input-field">
                                                   <div class="btn teal lighten-1">
                                                       <span>File</span>
-                                                      <input type="file" multiple name="image">
+                                                      <input type="file" name="image">
                                                   </div>
                                                   <div class="file-path-wrapper">
                                                       <input class="file-path validate" type="text" placeholder="Upload one or more files">
                                                   </div>
                                               </div>
-                                      </div>
+                                      </div>-->
 
 
                                       <div class="col m12">
