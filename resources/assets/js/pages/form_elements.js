@@ -1,8 +1,14 @@
 $(document).ready(function(){
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
-        selectYears: 25, // Creates a dropdown of 15 years to control year
-        format: 'You selected: dddd, dd/mm/yyyy',
-        format_submit: 'yyyy-mm-dd'
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+    $('input.autocomplete').autocomplete({
+        data: {
+            "Apple": null,
+            "Microsoft": null,
+            "Google": 'assets/images/google.png'
+        }
     });
 });

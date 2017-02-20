@@ -3,6 +3,8 @@
 @section('styles')
   <link href="/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet">
   <link href="/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet">
+  <link href="assets/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="assets/plugins/tableexport/css/tableexport.min.css" rel="stylesheet">
 @endsection
 
 @section('scripts')
@@ -18,8 +20,24 @@
   <script src="/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
   <script src="/assets/plugins/curvedlines/curvedLines.js"></script>
   <script src="/assets/plugins/peity/jquery.peity.min.js"></script>
+  <script src="/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+  <script src="/assets/plugins/TableExport/js/FileSaver.min.js"></script>
+  <script src="/assets/plugins/TableExport/js/tableexport.min.js"></script>
   <script src="/assets/js/alpha.min.js"></script>
   <script src="/assets/js/pages/dashboard.js"></script>
+  <script>
+  $(function(){
+    $('#materialPreloader').hide();
+
+      $(".datatable-article").tableExport({
+          bootstrap: true
+      });
+
+      $(".datatable-message").tableExport({
+          bootstrap: true
+      });
+  });
+  </script>
 @endsection
 
 @section('content')
@@ -52,6 +70,7 @@
             </div>
         </div>
     </div>
+    <!--<div id="flotchart1"></div>-->
     <div class="row no-m-t no-m-b">
       <div class="col s12 m12">
         <div class="card invoices-card">
@@ -59,8 +78,8 @@
                 <div class="card-options">
                     <input type="text" class="expand-search" placeholder="Search" autocomplete="off" />
                 </div>
-                <span class="card-title">Ikhtisar artikel</span>
-                <table class="responsive-table bordered">
+                <span class="card-title">Review Artikel</span>
+                <table class="responsive-table bordered datatable-article">
                     <thead>
                         <tr>
                             <th data-field="id">ID</th>
@@ -96,9 +115,10 @@
             <div class="card-content">
                 <div class="card-options">
                     <input type="text" class="expand-search" placeholder="Search" autocomplete="off" />
+                    <button class="exp-msg">Export</button>
                 </div>
-                <span class="card-title">Ikhtisar artikel</span>
-                <table id="example" class="display responsive-table datatable-example bordered">
+                <span class="card-title">Histori Pesan</span>
+                <table id="" class="display responsive-table datatable-message bordered">
                     <thead>
                       <tr>
                           <th>Nama Anggota</th>

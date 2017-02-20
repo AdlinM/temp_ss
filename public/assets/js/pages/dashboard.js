@@ -217,7 +217,7 @@ $( document ).ready(function() {
 
     };
 
-    flot1();
+    //flot1();
 
     var flotchart2 = function () {
 
